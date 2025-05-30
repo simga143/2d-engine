@@ -1,0 +1,16 @@
+{
+	"test_sequence": {
+		"1": [ { "player_mode": "blue" } ],
+		"60": [ { "attack": "test_attack", "x": 120.0, "y": 240.0, "r": 0.0 }, { "attack": "test_attack", "x": 120.0, "y": 120.0, "r": 0.0 } ],
+		"80": [ { "attack": "test_attack", "x": 120.0, "y": 220.0, "r": 0.0 }, { "attack": "test_attack", "x": 120.0, "y": 140.0, "r": 0.0 } ],
+		"100": [ { "attack": "test_attack", "x": 120.0, "y": 200.0, "r": 0.0 }, { "attack": "test_attack", "x": 120.0, "y": 160.0, "r": 0.0 } ],
+		"120": [ { "attack": "test_attack", "x": 120.0, "y": 180.0, "r": 0.0 } ],
+		"200-217": [ { "attack": "test_attack", "x": 240.0, "y": 180.0, "r": "f*20" } ],
+		"280": [ { "box_transform": true, "x": 100.0, "y": 100.0 } ],
+		"360": [ { "box_transform": true, "x": 240.0, "y": 180.0, "r": 360, "size_top": 180, "size_bottom": 180, "size_left": 240, "size_right": 240 } ],
+		"390": [ { "player_mode": "red" } ],
+		"440-1040%10": [ { "attack": "test_attack", "x": "240+(sin(f*57)*220)", "y": -20.0, "r": 90.0 }, { "attack": "test_attack", "x": -20.0, "y": "180+(cos(f*57)*180)", "r": 0.0 } ],
+		"1240": [ { "player_mode": "blue" }, { "box_transform": true, "x": 240.0, "y": 180.0, "r": 360, "size_top": 64, "size_bottom": 64, "size_left": 64, "size_right": 64 } ],
+		"1400": [ { "end_turn": true } ]
+	}
+}

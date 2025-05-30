@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwm0jr0hfpels"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_jorvc"]
+[ext_resource type="PackedScene" uid="uid://bm255lj1dn77s" path="res://battle.tscn" id="3_peuvm"]
+[ext_resource type="PackedScene" uid="uid://ccl32tfvo37us" path="res://overworld.tscn" id="4_0d2xm"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_jorvc")
+
+[node name="Overworld" parent="." instance=ExtResource("4_0d2xm")]
+
+[node name="Battle" parent="." instance=ExtResource("3_peuvm")]
+process_priority = 0
+skill_file = null
+
+[connection signal="battle_start" from="." to="Battle" method="begin_battle"]

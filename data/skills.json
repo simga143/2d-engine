@@ -1,0 +1,18 @@
+{
+	"skill": {
+		"pp_required": 0,
+		"damage_calculation": "ATK*2",
+		"decrease_each_second": 1,
+		"animation": "skill",
+		"targeting_method": "single (single, all_friends, all_friends_self, all_enemies, all)",
+		"can_target": [
+			"enemies",
+			"friends",
+			"self"
+		],
+		"can_be_used_by": [],
+		"cannot_be_used_by": [],
+		"effects_to_self": [],
+		"effects_to_target": []
+	}
+}

@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://dwm0jr0hfpels"]
+
+[ext_resource type="Script" uid="uid://b5mqgvo4e2e7f" path="res://main.gd" id="1_jorvc"]
+[ext_resource type="PackedScene" uid="uid://bm255lj1dn77s" path="res://battle.tscn" id="3_peuvm"]
+[ext_resource type="PackedScene" uid="uid://ccl32tfvo37us" path="res://overworld.tscn" id="4_0d2xm"]
+[ext_resource type="PackedScene" uid="uid://cutqqr1j5revj" path="res://overworld_ui.tscn" id="4_1bvp3"]
+[ext_resource type="Shader" uid="uid://s8l0dpgj8sqh" path="res://burn.gdshader" id="5_7mycd"]
+[ext_resource type="Texture2D" uid="uid://doq71l4ubl3rh" path="res://art/noise.png" id="6_272bh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vw27"]
+shader = ExtResource("5_7mycd")
+shader_parameter/dissolve_texture = ExtResource("6_272bh")
+shader_parameter/dissolve_value = 0.0
+shader_parameter/burn_size = 0.04
+shader_parameter/burn_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_fahm1"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kek77"]
+gradient = SubResource("Gradient_fahm1")
+width = 480
+height = 360
+
+[node name="Main" type="Node"]
+script = ExtResource("1_jorvc")
+
+[node name="Overworld" parent="." instance=ExtResource("4_0d2xm")]
+
+[node name="Battle" parent="." instance=ExtResource("3_peuvm")]
+process_priority = 0
+
+[node name="overworld_ui" parent="." instance=ExtResource("4_1bvp3")]
+
+[node name="transitionContainer" type="CanvasLayer" parent="."]
+
+[node name="transition" type="Sprite2D" parent="transitionContainer"]
+material = SubResource("ShaderMaterial_5vw27")
+position = Vector2(240, 180)
+texture = SubResource("GradientTexture2D_kek77")
+
+[connection signal="battle_start" from="." to="Battle" method="begin_battle"]
+[connection signal="dialogue_start" from="." to="overworld_ui" method="_on_main_dialogue_start"]
+[connection signal="transition_completed" from="." to="." method="_on_transition_completed"]
+[connection signal="update_theme_all" from="." to="." method="_on_update_theme_all"]
+[connection signal="update_theme_all" from="." to="Battle" method="_on_main_update_theme_all"]
+
+[editable path="Overworld"]

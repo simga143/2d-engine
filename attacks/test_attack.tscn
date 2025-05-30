@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2to13qugc6m1"]
+
+[ext_resource type="Script" uid="uid://de0r3sbofvcei" path="res://attacks/test_attack.gd" id="1_opa84"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7d6c4"]
+
+[node name="test_attack" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_opa84")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7d6c4")
+debug_color = Color(1, 0, 0, 0.419608)

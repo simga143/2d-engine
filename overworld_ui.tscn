@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://cutqqr1j5revj"]
+
+[ext_resource type="Texture2D" uid="uid://d11bggw3x1uyd" path="res://art/TextBox2.png" id="1_0axsr"]
+[ext_resource type="Script" uid="uid://qil25aefws23" path="res://overworld_ui.gd" id="1_euolt"]
+[ext_resource type="Texture2D" uid="uid://c8m58fu82mfbo" path="res://art/portraits/nullguy_0.png" id="3_ug7u3"]
+
+[node name="overworld_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_euolt")
+
+[node name="canvas" type="CanvasLayer" parent="."]
+
+[node name="dialogue" type="BoxContainer" parent="canvas"]
+offset_top = 240.0
+offset_right = 480.0
+offset_bottom = 360.0
+theme_override_constants/separation = 0
+
+[node name="picture" type="MarginContainer" parent="canvas/dialogue"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="texture" type="NinePatchRect" parent="canvas/dialogue/picture"]
+layout_mode = 2
+texture = ExtResource("1_0axsr")
+region_rect = Rect2(0, 0, 96, 96)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="portrait" type="CenterContainer" parent="canvas/dialogue/picture"]
+layout_mode = 2
+
+[node name="portraitImg" type="TextureRect" parent="canvas/dialogue/picture/portrait"]
+layout_mode = 2
+texture = ExtResource("3_ug7u3")
+stretch_mode = 2
+
+[node name="text_box" type="MarginContainer" parent="canvas/dialogue"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="texture" type="NinePatchRect" parent="canvas/dialogue/text_box"]
+layout_mode = 2
+texture = ExtResource("1_0axsr")
+region_rect = Rect2(0, 0, 96, 96)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="margin" type="MarginContainer" parent="canvas/dialogue/text_box"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="text" type="RichTextLabel" parent="canvas/dialogue/text_box/margin"]
+layout_mode = 2
+
+[node name="TypeCharacterTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="TypeCharacterTimer" to="." method="_on_type_character_timer_timeout"]

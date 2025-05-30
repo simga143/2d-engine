@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://duuj0rienghd5"]
+
+[ext_resource type="Shader" uid="uid://cjoq1bstibqq8" path="res://burn.gdshader" id="1_h5i0b"]
+[ext_resource type="Texture2D" uid="uid://doq71l4ubl3rh" path="res://art/noise.png" id="2_uouca"]
+
+[resource]
+shader = ExtResource("1_h5i0b")
+shader_parameter/dissolve_texture = ExtResource("2_uouca")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.04
+shader_parameter/burn_color = Color(0, 0, 0, 1)

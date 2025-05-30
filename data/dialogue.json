@@ -1,0 +1,7 @@
+{
+	"test_dialogue":
+		[
+			{"text":"Test dialogue text\nNew line test\n","effects":{"text_speed":0.1,"portrait":"nullguy_0"}},
+			{"text":"Added text test","effects":{"text_speed":0.05,"portrait":"nullguy_happy"}}
+		]
+}
