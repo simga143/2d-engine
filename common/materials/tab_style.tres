@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://k4navubmpgv6"]
+
+[ext_resource type="Texture2D" uid="uid://d11bggw3x1uyd" path="res://art/TextBox2.png" id="1_ge1gt"]
+
+[resource]
+content_margin_left = 32.0
+texture = ExtResource("1_ge1gt")
+texture_margin_left = 9.0
+texture_margin_top = 9.0
+texture_margin_right = 9.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 96, 96)

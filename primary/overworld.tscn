@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccl32tfvo37us"]
+
+[ext_resource type="PackedScene" uid="uid://g7eunj2s8rta" path="res://primary/tiles.tscn" id="1_j1ujm"]
+[ext_resource type="PackedScene" uid="uid://cpctu6tw2tson" path="res://primary/player.tscn" id="2_18j1c"]
+[ext_resource type="PackedScene" uid="uid://xxomc0wsxsr7" path="res://primary/follower.tscn" id="3_xsy3o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p22t0"]
+size = Vector2(480, 360)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyb65"]
+size = Vector2(32, 32)
+
+[node name="Overworld" type="Node2D"]
+metadata/is_overworld = true
+metadata/LastPlayerPositions = PackedVector2Array(0, 0)
+
+[node name="Tiles" parent="." instance=ExtResource("1_j1ujm")]
+
+[node name="Room1" type="Area2D" parent="."]
+position = Vector2(240, 180)
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="Area" type="CollisionShape2D" parent="Room1"]
+process_mode = 4
+shape = SubResource("RectangleShape2D_p22t0")
+disabled = true
+debug_color = Color(0.741176, 0.219608, 1, 0.145098)
+
+[node name="Follower4" parent="." instance=ExtResource("3_xsy3o")]
+id = 4
+
+[node name="Follower3" parent="." instance=ExtResource("3_xsy3o")]
+id = 3
+
+[node name="Follower2" parent="." instance=ExtResource("3_xsy3o")]
+id = 2
+
+[node name="Follower1" parent="." instance=ExtResource("3_xsy3o")]
+
+[node name="Player" parent="." instance=ExtResource("2_18j1c")]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+metadata/ID = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-32, -32)
+shape = SubResource("RectangleShape2D_nyb65")
+debug_color = Color(0, 0.648119, 0.191015, 0.42)

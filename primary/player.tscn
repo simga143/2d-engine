@@ -1,0 +1,103 @@
+[gd_scene load_steps=15 format=3 uid="uid://cpctu6tw2tson"]
+
+[ext_resource type="Script" uid="uid://tjcyplpwxhfi" path="res://primary/player.gd" id="1_j66c2"]
+[ext_resource type="Texture2D" uid="uid://cbvpj2kas8ahi" path="res://art/Walk Cycle-1.png.png" id="2_bnpqe"]
+[ext_resource type="Texture2D" uid="uid://bhb1gp08dp5t8" path="res://art/Walk Cycle-2.png.png" id="3_rbvmd"]
+[ext_resource type="Texture2D" uid="uid://cfb5vk0nts2aa" path="res://art/Walk Cycle-3.png.png" id="4_8q8ut"]
+[ext_resource type="Texture2D" uid="uid://bpjrbywio5okk" path="res://art/Side Walk Cycle-1.png.png" id="5_lfox8"]
+[ext_resource type="Texture2D" uid="uid://bm4js5tgr6fdm" path="res://art/Side Walk Cycle-2.png.png" id="6_ajvd5"]
+[ext_resource type="Texture2D" uid="uid://diluaktp5ia7" path="res://art/Side Walk Cycle-3.png.png" id="7_60dya"]
+[ext_resource type="Texture2D" uid="uid://cnagdjchnmw2b" path="res://art/Up Walk Cycle-1.png.png" id="8_spbs7"]
+[ext_resource type="Texture2D" uid="uid://350ymp4yhpb6" path="res://art/Up Walk Cycle-2.png.png" id="9_t6kli"]
+[ext_resource type="Texture2D" uid="uid://daa7cnompr4e3" path="res://art/Up Walk Cycle-3.png.png" id="10_rg3k4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yjgom"]
+size = Vector2(28, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7o16"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bnpqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rbvmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bnpqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8q8ut")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_lfox8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ajvd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lfox8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_60dya")
+}],
+"loop": true,
+"name": &"side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_spbs7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_t6kli")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_spbs7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rg3k4")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_uwqmu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7ghd"]
+size = Vector2(16, 24)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_j66c2")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yjgom")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n7o16")
+animation = &"down"
+
+[node name="Camera" type="Camera2D" parent="."]
+limit_left = -480
+limit_top = -360
+limit_right = 480
+limit_bottom = 360
+
+[node name="FollowTrail" type="Path2D" parent="."]
+curve = SubResource("Curve2D_uwqmu")
+
+[node name="Interaction" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="InteractCollision" type="CollisionShape2D" parent="Interaction"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_n7ghd")
+debug_color = Color(0, 0.64616, 0.2437, 0.42)
