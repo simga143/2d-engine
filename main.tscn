@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://dwm0jr0hfpels"]
 
 [ext_resource type="Script" uid="uid://b5mqgvo4e2e7f" path="res://main.gd" id="1_jorvc"]
-[ext_resource type="PackedScene" uid="uid://bm255lj1dn77s" path="res://battle.tscn" id="3_peuvm"]
-[ext_resource type="PackedScene" uid="uid://ccl32tfvo37us" path="res://overworld.tscn" id="4_0d2xm"]
-[ext_resource type="PackedScene" uid="uid://cutqqr1j5revj" path="res://overworld_ui.tscn" id="4_1bvp3"]
-[ext_resource type="Shader" uid="uid://s8l0dpgj8sqh" path="res://burn.gdshader" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bm255lj1dn77s" path="res://primary/battle.tscn" id="3_peuvm"]
+[ext_resource type="PackedScene" uid="uid://ccl32tfvo37us" path="res://primary/overworld.tscn" id="4_0d2xm"]
+[ext_resource type="PackedScene" uid="uid://cutqqr1j5revj" path="res://primary/overworld_ui.tscn" id="4_1bvp3"]
+[ext_resource type="Shader" uid="uid://s8l0dpgj8sqh" path="res://common/shaders/burn.gdshader" id="5_7mycd"]
 [ext_resource type="Texture2D" uid="uid://doq71l4ubl3rh" path="res://art/noise.png" id="6_272bh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5vw27"]
